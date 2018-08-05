@@ -1,5 +1,7 @@
-var Letter = (guess) => {
+function Letter(guess) {
+    
     this.guess = guess;
+    
     this.guessed = false;
 
     this.holder = () => {
@@ -11,6 +13,7 @@ var Letter = (guess) => {
             return this.guess;
         }
     };
+
     this.check = (userGuess) => {
         if (this.guess === userGuess) {
             this.guessed = true;
@@ -18,7 +21,7 @@ var Letter = (guess) => {
     };
 };
 
-exports.module = Letter;
+module.exports = Letter;
 
 const chalk = require('chalk');
  
