@@ -1,0 +1,31 @@
+{
+  "name": "wordguess-cli",
+  "version": "1.0.0",
+  "description": "Word Guess Cli Nodejs Game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/docvvk/WordGuess-Cli.git"
+  },
+  "keywords": [
+    "WordGuess",
+    "Cli",
+    "Nodejs",
+    "Assignment"
+  ],
+  "author": "Vivek Malhan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/docvvk/WordGuess-Cli/issues"
+  },
+  "homepage": "https://github.com/docvvk/WordGuess-Cli#readme",
+  "dependencies": {
+    "chalk-animation": "^1.6.0",
+    "inquirer": "^6.0.0",
+    "npm": "^6.3.0",
+    "require": "^2.4.20"
+  }
+}
