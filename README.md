@@ -19,4 +19,4 @@ The application allows the user to play a hangman-style guessing game with words
 
 ## Author
 
-* [Vivek Malhan](https://docvvk.github.io/Portfolio/)
+[Vivek Malhan](https://docvvk.github.io/Portfolio/)
