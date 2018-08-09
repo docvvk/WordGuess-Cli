@@ -2,7 +2,6 @@
 var Word = require('./Word');
 var inquirer = require('inquirer');
 var chalk = require('chalk');
-var chalkAnimation = require('chalk-animation');
 
 // Defining game variables
 var wordList = ['INDIA', 'CANADA', 'AMERICA', 'JAPAN', 'SINGAPORE', 'DUBAI', 'PAKISTAN', 'MEXICO', 'ARGENTINA', 'SLOVAKIA', 'ZIMBABWE', 'AUSTRALIA', 'SWITZERLAND', 'TURKMENISTAN'];
@@ -13,6 +12,9 @@ var counter = 0;
 
 // Coosing random word from the words list
 function startGame() {
+    if (wordList.length<2) {
+        wordList = ['INDIA', 'CANADA', 'AMERICA', 'JAPAN', 'SINGAPORE', 'DUBAI', 'PAKISTAN', 'MEXICO', 'ARGENTINA', 'SLOVAKIA', 'ZIMBABWE', 'AUSTRALIA', 'SWITZERLAND', 'TURKMENISTAN'];
+    }
     select = (Math.floor(Math.random() * wordList.length));
     chosenWord = wordList[select];
     gameWord = new Word(chosenWord);
@@ -23,13 +25,13 @@ function startGame() {
         wordList.splice(select, 1);
     };
 
-    console.log(chalk.red(`You get 8 letter guesses to find the country name`));
+    console.log(chalk.cyan(`\nYou get 8 letter guesses to find the Country Name\n`));
     promptUser();
 };
 
 // Prompts user for guess, restarting game if guesses are over
 function promptUser() {
-    if (counter<6) {
+    if (counter<8) {
         console.log(gameWord.showWord());
         inquirer.prompt([
             {
@@ -42,7 +44,7 @@ function promptUser() {
         });
     } else {
         console.log(chalk.red(`\n Sorry ! You are out of guesses.`));
-        console.log(chalkAnimation.rainbow(chosenWord));
+        console.log(chalk.keyword('pink')(chosenWord));
         chosenWord = "";
         gameWord = "";
         select = 0;
@@ -58,9 +60,9 @@ function checkAnswer(data) {
         var temp = gameWord.showWord();
         gameWord.checkWord(checkable);
         if (temp === gameWord.showWord()) {
-            console.log(`\nSorry, wrong letter!\n.`);
+            console.log(chalk.magenta(`\nSorry, wrong letter!\n`));
             counter++;
-            console.log((8 - counter) + " guesses remaining");
+            console.log(chalk.gray((8 - counter) + " guesses remaining\n"));
             promptUser();
         }
         else {
@@ -68,7 +70,7 @@ function checkAnswer(data) {
         }
     }
     else {
-        console.log("\nPlease enter a letter, one at a time.\n");
+        console.log(chalk.blue.bgWhite("Please enter a letter, one at a time."));
         promptUser();
     }
 }
@@ -76,10 +78,10 @@ function checkAnswer(data) {
 //If the user's guess is correct, the word array displays the word with the guessed letter(s), 
 //If the entire word is correct (filled in), the game restarts.
 function rightGuess() {
-    console.log("\nYou guessed correctly.\n".green);
+    console.log("\nYou guessed correctly.\n");
     if (chosenWord.replace(/ /g,"") == (gameWord.showWord()).replace(/ /g,"")) {
-        console.log(gameWord.showWord().america);
-        console.log('\nYou win!!\n'.america);
+        console.log(chalk.keyword('skyblue')(gameWord.showWord()));
+        console.log(chalk.keyword('orange')('\nYou win!!\n'));
         chosenWord = "";
         gameWord = "";
         select = 0;

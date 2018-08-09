@@ -5,29 +5,30 @@ function Letter(guess) {
     this.guessed = false;
 
     this.holder = () => {
-        if (this.guess = " ") {
+        if (this.guess === " ") {
             return " "
-        } else if (!this.guess) {
-            return "_"
+        } else if (!this.guessed) {
+            return "_ "
         } else {
             return this.guess;
         }
     };
 
     this.check = (userGuess) => {
-        if (this.guess === userGuess) {
+        if ( userGuess === this.guess) {
             this.guessed = true;
         }
     };
 };
 
+
 module.exports = Letter;
 
-const chalk = require('chalk');
+// const chalk = require('chalk');
  
-console.log(chalk.blue('Hello world!'));
+// // console.log(chalk.blue(L));
 
-const chalkAnimation = require('chalk-animation');
+// const chalkAnimation = require('chalk-animation');
  
 // chalkAnimation.rainbow('Lorem ipsum dolor sit amet');
 // chalkAnimation.pulse('Lorem ipsum dolor sit amet');
