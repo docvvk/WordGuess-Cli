@@ -43,7 +43,7 @@ function promptUser() {
             checkAnswer(data);
         });
     } else {
-        console.log(chalk.red(`\n Sorry ! You are out of guesses.`));
+        console.log(chalk.red(`Sorry ! You are out of guesses.\n`));
         console.log(chalk.keyword('pink')(chosenWord));
         chosenWord = "";
         gameWord = "";
